@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Validation Suite" preserve-order="true" thread-count="1" verbose="10" parallel="false" configfailurepolicy="skip"
+allow-return-values="false">
+	<listeners>
+		<listener class-name="ios.AllureListener"/>
+	</listeners>
+  <test name="preprod signup" skipfailedinvocationcounts="false" preserve-order="true" group-by-instances="false" allow-return-values="false">
+    <classes>
+      <class name="ios.SignupWithInsuffientCard"/>
+    </classes>
+  </test>
+  <!--<test name="cc validations" skipfailedinvocationcounts="false" preserve-order="true" group-by-instances="false" allow-return-values="false">
+    <classes>
+      <class name="ios.CreditCardValidations"/>
+    </classes>
+  </test>-->
+  <!--<test name="debit card signup" skipfailedinvocationcounts="false" preserve-order="true" group-by-instances="false" allow-return-values="false">
+    <classes>
+      <class name="ios.SignupDebitCard"/>
+    </classes>
+  </test>-->
+  <!--<test name="check card added is default" skipfailedinvocationcounts="false" preserve-order="true" group-by-instances="false" allow-return-values="false">
+    <classes>
+      <class name="ios.CheckCardAddedIsDefault"/>
+    </classes>
+  </test>-->
+  <!--<test name="check payment card text" skipfailedinvocationcounts="false" preserve-order="true" group-by-instances="false" allow-return-values="false">
+    <classes>
+      <class name="ios.PaymentCardText"/>
+    </classes>
+  </test>-->
+  <!--<test name="check login" skipfailedinvocationcounts="false" preserve-order="true" group-by-instances="false" allow-return-values="false">
+    <classes>
+      <class name="ios.Login"/>
+    </classes>
+  </test>-->
+  <!--<test name="check debit contract" skipfailedinvocationcounts="false" preserve-order="true" group-by-instances="false" allow-return-values="false">
+    <classes>
+      <class name="ios.DebitContract"/>
+    </classes>
+  </test>-->
+ </suite> <!-- Suite -->

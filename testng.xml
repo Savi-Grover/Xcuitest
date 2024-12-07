@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Master Suite" preserve-order="true" thread-count="1" verbose="10" parallel="false" configfailurepolicy="skip"
+allow-return-values="false">
+	<suite-files>
+	<suite-file path="ValidationTestNG.xml"></suite-file>
+	<suite-file path="FunctionalTestNG.xml"></suite-file>
+</suite-files>
+	<listeners>
+		<listener class-name="ios.AllureListener"/>
+	</listeners>
+ </suite> <!-- Suite -->

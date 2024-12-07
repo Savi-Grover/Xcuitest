@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Functional Suite" preserve-order="true" thread-count="1" verbose="10" parallel="false" configfailurepolicy="skip"
+allow-return-values="false">
+	<listeners>
+		<listener class-name="ios.AllureListener"/>
+	</listeners>
+  <test name="Signup Process" skipfailedinvocationcounts="false" preserve-order="true" group-by-instances="false" allow-return-values="false">
+    <classes>
+      <class name="ios.SignupFordrive"/>
+    </classes>
+  </test>
+  <test name="Uber Signup" skipfailedinvocationcounts="false" preserve-order="true" group-by-instances="false" allow-return-values="false">
+    <classes>
+      <class name="ios.Signup_VehicleMarketPlace"/>
+    </classes>
+  </test> 
+  <test name="Low Credit Signup" skipfailedinvocationcounts="false" preserve-order="true" group-by-instances="false" allow-return-values="false">
+    <classes>
+	  <class name="ios.LowCreditScore"/>
+    </classes>
+  </test> 
+  <test name="Experian Fail" skipfailedinvocationcounts="false" preserve-order="true" group-by-instances="false" allow-return-values="false">
+    <classes>
+      <class name="ios.ExperianFail"/>
+    </classes>
+  </test> 
+   <!-- <test name="Footers Verify" skipfailedinvocationcounts="false" preserve-order="true" group-by-instances="false" allow-return-values="false">
+    <classes>
+      <class name="ios.FooterLinksAllPages"/>
+    </classes>
+  </test>-->
+  <test name="Verify if CC is not entered- dashb shows CC element" skipfailedinvocationcounts="false" preserve-order="true" group-by-instances="false" allow-return-values="false">
+    <classes>
+      <class name="ios.JustPassword"/>
+    </classes>
+  </test>
+  <test name="debit card signup" skipfailedinvocationcounts="false" preserve-order="true" group-by-instances="false" allow-return-values="false">
+    <classes>
+      <class name="ios.SignupDebitCard"/>
+    </classes>
+  </test>
+  <test name="check card added is default" skipfailedinvocationcounts="false" preserve-order="true" group-by-instances="false" allow-return-values="false">
+    <classes>
+      <class name="ios.CheckCardAddedIsDefault"/>
+    </classes>
+  </test>
+  <test name="check login" skipfailedinvocationcounts="false" preserve-order="true" group-by-instances="false" allow-return-values="false">
+    <classes>
+      <class name="ios.Login"/>
+    </classes>
+  </test>
+  <!--<test name="Experian Credit Check" skipfailedinvocationcounts="false" preserve-order="true" group-by-instances="false" allow-return-values="false">
+    <classes>
+      <class name="ios.ExperianSpecial"/>
+    </classes>
+  </test>-->
+ </suite> <!-- Suite -->

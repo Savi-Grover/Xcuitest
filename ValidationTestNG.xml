@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Validation Suite" preserve-order="true" thread-count="1" verbose="10" parallel="false" configfailurepolicy="skip"
+allow-return-values="false">
+	<listeners>
+		<listener class-name="ios.AllureListener"/>
+	</listeners>
+  <test name="Partial Page Validations" skipfailedinvocationcounts="false" preserve-order="true" group-by-instances="false" allow-return-values="false">
+    <classes>
+      <class name="ios.PartialSignupValidations"/>
+    </classes>
+  </test>
+  <test name="OTP Page Validations" skipfailedinvocationcounts="false" preserve-order="true" group-by-instances="false" allow-return-values="false">
+    <classes>
+      <class name="ios.OTPPageValidations"/>
+    </classes>
+  </test> 
+  <test name="Pricing Page Validations" skipfailedinvocationcounts="false" preserve-order="true" group-by-instances="false" allow-return-values="false">
+    <classes>
+	  <class name="ios.PricingTierPageValidations"/>
+    </classes>
+  </test> 
+  <test name="Application Page Validations" skipfailedinvocationcounts="false" preserve-order="true" group-by-instances="false" allow-return-values="false">
+    <classes>
+      <class name="ios.ApplicationPageValidations"/>
+    </classes>
+  </test> 
+    <test name="Password Page Validations" skipfailedinvocationcounts="false" preserve-order="true" group-by-instances="false" allow-return-values="false">
+    <classes>
+      <class name="ios.PasswordPageValidations"/>
+    </classes>
+  </test>
+  <test name="check payment card text" skipfailedinvocationcounts="false" preserve-order="true" group-by-instances="false" allow-return-values="false">
+    <classes>
+      <class name="ios.PaymentCardText"/>
+    </classes>
+  </test>
+  <!-- to fix
+  <test name="Credit card Page Validations" skipfailedinvocationcounts="false" preserve-order="true" group-by-instances="false" allow-return-values="false">
+    <classes>
+      <class name="ios.CreditCardValidations"/>
+    </classes>
+  </test> 
+  -->
+ </suite> <!-- Suite -->

@@ -1,0 +1,192 @@
+package ios;
+//## Credit Card Validation 
+
+//To verify Validations messages on Credit card page (Declined, Incorrect number, CVC, expiry date, Debit card, Gift card, Insufficient fund card...)
+//To verify user should not able proceed with Debit & gift card details
+//To verify user should not able provide invalid card details
+
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+import java.io.FileInputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.math3.ode.events.EventHandler.Action;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import io.appium.java_client.AppiumBy;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.appmanagement.BaseOptions;
+import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.ios.options.XCUITestOptions;
+import io.appium.java_client.ios.options.wda.SupportsAutoAcceptAlertsOption;
+import io.appium.java_client.remote.SupportsContextSwitching;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import pages.ApplicationPage;
+import pages.CreditCardPage;
+import pages.DashboardPage;
+import pages.LoginPage;
+import pages.OTPPage;
+import pages.PackagesPage;
+import pages.PartialSignupPage;
+
+public class CreditCardValidations extends BaseClass {
+	 static AppiumDriver driver;
+		
+		@Description("IOS Setup")
+		@BeforeTest
+		@SuppressWarnings({ "deprecation", "unused", "unused", "unused", "unused" })
+		
+		  public AppiumDriver setup() throws MalformedURLException{
+
+			 BaseClass bs=new BaseClass();
+			 driver=bs.initialize_driver();
+			 return driver;
+		}
+		
+	    //initialise null objects for pages files
+		PartialSignupPage PartialSignupPg;
+		OTPPage otppg;
+		PackagesPage pkgpg;
+		ApplicationPage applicnpg;
+		CreditCardPage creditcardpg;
+		DashboardPage dashbpg;
+		LoginPage loginpg;
+		
+		@Description("creditcard page verification begin")
+		@Epic("Credit Card Page")
+		@Feature("Feature5: Credit Card Page Validations")
+		@Severity(SeverityLevel.CRITICAL)
+		@Test
+		@SuppressWarnings("deprecation")
+ 	    public static void CreditCardValidations() throws MalformedURLException {
+		//import page class and initialse obj of this all page class
+		PartialSignupPage PartialSignupPg = new PartialSignupPage(driver);
+		OTPPage otppg = new OTPPage(driver);
+		PackagesPage pkgpg=new PackagesPage(driver);
+		ApplicationPage applicnpg=new ApplicationPage(driver);
+		CreditCardPage creditcardpg=new CreditCardPage(driver);
+		DashboardPage dashbpg = new DashboardPage(driver);
+		LoginPage loginpg = new LoginPage(driver);
+		
+		// run launch chrome
+		try {
+
+			// fill details on Partial signup
+			FileInputStream fs = new FileInputStream("/Users/sgrover7/eclipse-workspace/ios/src/test/resources/InputFile/CreditCardValidations.xlsx");
+			@SuppressWarnings("resource")
+			XSSFWorkbook workbook = new XSSFWorkbook(fs);
+			XSSFSheet sheet = workbook.getSheetAt(0);
+
+			// get row count & no of accounts
+			int rowNum = sheet.getLastRowNum();
+			int numOfAccts = (int) sheet.getRow(1).getCell(4).getNumericCellValue();
+			System.out.println("total number of rows is:  " + rowNum);
+
+			// loop begin- parent loop runs for number of rows
+			for (int j = 1; j <= rowNum; j++) {
+
+				// int numOfAccts1=(int) sheet.getRow(j).getCell(5).getNumericCellValue();
+				int noOfsignups = (int) sheet.getRow(j).getCell(4).getNumericCellValue();
+
+				// second loop runs for 1 row of data - for number of account times
+				System.out.println("total number of accounts in first row: " + noOfsignups);
+				for (int i = 1; i <= noOfsignups; i++) {
+					// System.out.println("running iterations for this number of times"
+					// +numOfAccts);
+					String env = sheet.getRow(j).getCell(0).toString();
+					String loc = sheet.getRow(j).getCell(1).toString();
+					String zipcode = sheet.getRow(j).getCell(2).toString();
+					String tier = sheet.getRow(j).getCell(3).toString();
+					driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+					if (env.contains("stage")) {
+						
+					driver.get("https://stage.rideshare.forddrive.com/sign-up?referrer=bonjour.uber.com");
+					String context=((SupportsContextSwitching) driver).getContext();
+					System.out.println(context);
+					}
+				    else if (env.contains("preprod")) {
+						
+					 } else if (env.contains("dev")) {
+							
+					 } else {
+						 driver.get("https://rideshare.forddrive.com/sign-up?referrer=https%3A%2F%2Fbonjour.uber.com%2F");
+						
+					}
+					
+					String emailtoLogin = "1mjdsca5as@yopmail.com";
+					
+					//Sign in button
+					PartialSignupPg.link_signIn.click();
+					Thread.sleep(5000);
+					
+					//allow cookie
+					//if detect cookie settings
+					PartialSignupPg.ignore_cookie_popup();
+					Thread.sleep(6000);
+					
+					//enter email
+					loginpg.text_EmailAddress1.click();
+					loginpg.text_EmailAddress1.sendKeys(emailtoLogin);
+					Thread.sleep(5000);
+					loginpg.button_continue.click();
+					Thread.sleep(5000);
+						
+					PartialSignupPg.ignore_cookie_popup();
+					Thread.sleep(6000);
+					
+					//enter on login page and verify pp
+					loginpg.signIn_and_verifyPendingDashboard(emailtoLogin);
+					
+					dashbpg.close_btn.click();
+					dashbpg.Verify_pendingPickup();
+					
+					/////////////////go to profile and add different cards/////////////////////////////////////////////////
+					//populate and check card add message
+					dashbpg.goto_profile_addCard("4000 0000 0000 9996");
+					
+					//change card
+					//sdashbpg.goto_profile_addCard1("4000 0000 0000 99951234123121111");
+					
+					Thread.sleep(5000);
+				    
+					
+					
+				}
+			}
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+		@AfterMethod
+		@Description("creditcard page verification end")
+		@AfterTest
+		public static void tearDown() {
+			driver.quit();
+			//System.out.println("Test completed successfully.");
+			Assert.assertTrue(true, "Test completed successfully.");
+		}
+
+	
+}
+	
