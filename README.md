@@ -1,4 +1,4 @@
-# vehicle-reservations-appium-ios
+# step-appium-ios
 
 **IOS Automation - Installation in MAC**
 1. brew install node
