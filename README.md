@@ -1,4 +1,4 @@
-# step-appium-ios
+# steps -appium-ios
 
 **IOS Automation - Installation in MAC**
 1. brew install node
