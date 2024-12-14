@@ -69,6 +69,17 @@ methods and elements of page.java into testcases by . operator.
 3. Convert testcase to TESTNG
 4. Run testcase as TestNG.
 
+**TestNG.XML**
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite  name="Suite1">
+<test thread-count="5" name="Test">
+<classes>
+<class name="ios.ApplicationPageValidations"/>
+</classes>
+</test> <!-- Test -->
+</suite> <!-- Suite -->
+
 **Allure Reports Installation**
 
 1. brew install allure - in terminal or download allure.zip and unzip it.
