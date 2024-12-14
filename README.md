@@ -2,32 +2,31 @@
 
 **IOS Automation - Installation in MAC**
 1. brew install node
-2. brew install node
-3. brew install java
-4. npm install -g appium
-5. npm install appium-doctor -g
-6. appium-doctor --ios
+2. brew install java
+3. npm install -g appium
+4. npm install appium-doctor -g
+5. appium-doctor --ios
 
 **Perform path setting in nano /.zshrc in mac**
 
-7. brew doctor
-8. xcode-select --install
-9. xcode-select -p
-10. brew install Carthage
+6. brew doctor
+7. xcode-select --install
+8. xcode-select -p
+9. brew install Carthage
 
 **Install drivers :**
 
-11. appium driver list
-12. appium driver install xcuitest
-13. appium driver list  
-14. appium driver install uiautomater2
+10. appium driver list
+11. appium driver install xcuitest
+12. appium driver list  
+13. appium driver install uiautomater2
 
 **Start Xcode and set simulator 
   Download Appium Inspector** 
 
-15. filter in privacy settings of mac
-16. Terminal : xattr -d com.apple.quarantine -"path of appium inspector"
-17. Try decoding xpaths of mobile elements in NATIVE_APP mode from appium inspector.
+14. filter in privacy settings of mac
+15. Terminal : xattr -d com.apple.quarantine -"path of appium inspector"
+16. Try decoding xpaths of mobile elements in NATIVE_APP mode from appium inspector.
 
 **IOS driver capabilities used**
 NOTE: Update the PlatformName, DeviceName according to the Simulator you downloaded.
