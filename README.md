@@ -105,5 +105,22 @@ export PATH="path of bin folder of allure"
 
 ![image](https://media.github.ford.com/user/30776/files/295f4a09-a2e4-4551-8710-b345810f0afc)
 
+**JENKINS MAVEN INTEGRATION**
+1. in pom.xml - declare <configuration> having maven sure-fire pluggin and within configuration to have <suiteXML> aong with path of TestNG.xml file( this xml will have HLL testcases classes to be run for regression )
+2. In Jenkins-> install the maven integration pluggin
+3. In Jenkins Dashboard -> create a free style project 'Project Name'
+4. In Jenkins advanced section -> map the project github repo or local path of project
+5. In Build Section-> choose Maven Build step
+6. In goal -> clean test
+7. in goal specify file -> pom.xml | SAVE
+8. BUILD NOW
+9. verify console/build histroy
+
+**TEST REPORTS TESTNG- JENKINS INTEGRATION**
+1. In Managed Jenkins-> pluggins-> install the testNG Results pluggin
+2. In Jenkins Dashboard -> create/choose a test project 
+3. In Configuration> Post Build Section-> choose Maven Build step; and add post build action to Publish TESTNG result with testng-result.xml file path.( this path is inside sure-fire pluggin folder in project )
+4. SAVE
+5. BUILD NOW
 
 
